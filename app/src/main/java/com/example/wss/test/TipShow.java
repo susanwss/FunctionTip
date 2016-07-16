@@ -61,16 +61,6 @@ public class TipShow {
         showViewMeasure[0] = showView.getMeasuredWidth();
         showViewMeasure[1] = showView.getMeasuredHeight();
         Log.d("wang_show", ("\n\n" + showView.getMeasuredWidth() + "," + showView.getMeasuredHeight()));
-//        ViewTreeObserver vto2 = showView.getViewTreeObserver();
-//        vto2.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-//            @Override
-//            public void onGlobalLayout() {
-//                showView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-//                showViewMeasure[0] = showView.getWidth();
-//                showViewMeasure[1] = showView.getHeight();
-//                Log.d("wang_show", ("\n\n" + showView.getHeight() + "," + showView.getWidth()));
-//            }
-//        });
     }
 
     /**
@@ -84,16 +74,6 @@ public class TipShow {
         localViewMeasure[0] = localView.getMeasuredWidth();
         localViewMeasure[1] = localView.getMeasuredHeight();
         Log.d("wang_local", ("\n\n" + localView.getMeasuredWidth() + "," + localView.getMeasuredHeight()));
-//        ViewTreeObserver vto2 = localView.getViewTreeObserver();
-//        vto2.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-//            @Override
-//            public void onGlobalLayout() {
-//                localView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-//                localViewMeasure[0] = localView.getWidth();
-//                localViewMeasure[1] = localView.getHeight();
-//                Log.d("wang_local", ("\n\n" + localView.getHeight() + "," + localView.getWidth()));
-//            }
-//        });
     }
 
     /**
@@ -141,50 +121,6 @@ public class TipShow {
 
         showView.setLayoutParams(viewParams);
     }
-
-//    public void setShowViewLocationLeft() {
-//        setShowViewLocation(true, false, false, false, false);
-//    }
-//
-//    public void setShowViewLocationTop() {
-//        setShowViewLocation(false, true, false, false, false);
-//    }
-//
-//    public void setShowViewLocationRight() {
-//        setShowViewLocation(false, false, true, false, false);
-//    }
-//
-//    public void setShowViewLocationBottom() {
-//        setShowViewLocation(false, false, false, true, false);
-//    }
-//
-//    public void setShowViewLocationLeftTop() {
-//        setShowViewLocation(true, true, false, false, false);
-//    }
-//
-//    public void setShowViewLocationTopMiddle() {
-//        setShowViewLocation(false, true, false, false, true);
-//    }
-//
-//    public void setShowViewLocationTopRight(){
-//        setShowViewLocation(false, true, true, false, false);
-//    }
-//
-//    public void setShowViewLocationRightMiddle(){
-//        setShowViewLocation(false, false, true, false, true);
-//    }
-//
-//    public void setShowViewLocationRightBottom(){
-//        setShowViewLocation(false, false, true, true, false);
-//    }
-//
-//    public void setShowViewLocationBottomMiddle(){
-//        setShowViewLocation(false, false, false, true, true);
-//    }
-//
-//    public void setShowViewLocationBottomLeft(){
-//        setShowViewLocation(true, false, false, true, false);
-//    }
 
     public void setShowViewLocation(boolean left, boolean top, boolean right, boolean bottom, boolean middle) {
         this.left = left;
