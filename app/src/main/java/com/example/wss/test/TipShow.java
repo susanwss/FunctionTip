@@ -6,15 +6,15 @@ import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 /**
  * Created by wss on 7/14/16.
  */
 public class TipShow {
     private int[] location;
-    private RelativeLayout container;
+    private FrameLayout container;
     private int[] showViewMeasure;
     private int[] localViewMeasure;
     public boolean mainLeft = false;
@@ -26,8 +26,13 @@ public class TipShow {
     private boolean right = false;
     private boolean bottom = false;
     private boolean middle = false;
+    private boolean isShow = false;
+    private View showView = null;
 
     public void addTip(Activity activity, View localView, View showView) {
+        if (isShow && null != this.showView && this.showView == showView)
+            return;
+        this.showView = showView;
         initLocalView(activity, showView);
         showViewMeasure(showView);
         localViewMeasure(localView);
@@ -42,12 +47,12 @@ public class TipShow {
      */
     private void initLocalView(Activity activity, View showView) {
         ViewGroup rootView = (ViewGroup) activity.getWindow().getDecorView();
-        container = new RelativeLayout(activity);
+        container = new FrameLayout(activity);
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         container.setLayoutParams(params);
-        rootView.addView(container);
         container.removeAllViews();
         container.addView(showView);
+        rootView.addView(container);
     }
 
     /**
@@ -83,7 +88,7 @@ public class TipShow {
      * @param showView
      */
     private void showViewLocation(Activity activity, View showView) {
-        RelativeLayout.LayoutParams viewParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        FrameLayout.LayoutParams viewParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         Display display = activity.getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
@@ -120,6 +125,7 @@ public class TipShow {
         }
 
         showView.setLayoutParams(viewParams);
+        isShow = true;
     }
 
     public void setShowViewLocation(boolean left, boolean top, boolean right, boolean bottom, boolean middle) {
