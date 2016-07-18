@@ -25,7 +25,7 @@ public class Main2Activity extends AppCompatActivity {
         super.onWindowFocusChanged(hasFocus);
         if (hasFocus) {
             tipShow.mainBottom = true;
-            tipShow.setShowViewLocation(true, false, false, true, true);
+            tipShow.setShowViewLocation(true, false, false, false, true);
             tipShow.addTip(this, textView, imageView);
         }
     }
